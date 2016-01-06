@@ -5,10 +5,10 @@
   "homepage": "https://nodejs.org",
   "scripts": {
     "build": "node build.js",
-    "serve": "node build.js serve",
+    "serve": "node server.js",
     "load-versions": "node scripts/load-versions.js",
     "start": "npm run serve",
-    "test": "standard build.js scripts/*.js scripts/**/*.js tests/**/*.js && tape tests/**/*.test.js | faucet"
+    "test": "standard *.js scripts/*.js scripts/**/*.js tests/**/*.js && tape tests/**/*.test.js | faucet"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "autoprefixer-stylus": "0.8.1",
+    "changelog-url": "1.0.0",
+    "cheerio": "0.19.0",
     "chokidar": "1.2.0",
     "handlebars": "4.0.4",
     "html-to-text": "^1.5.0",
@@ -41,6 +43,7 @@
     "metalsmith-permalinks": "0.4.0",
     "metalsmith-prism": "2.1.1",
     "metalsmith-stylus": "1.0.0",
+    "metalsmith-yearly-pagination": "2.0.0",
     "ncp": "2.0.0",
     "node-geocoder": "^3.4.1",
     "node-version-data": "1.0.0",

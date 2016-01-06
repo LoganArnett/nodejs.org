@@ -36,6 +36,13 @@ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
+Alternatively, for Node.js v5:
+
+```bash
+curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
 ***Optional***: install build tools
 
 To compile and install native addons from npm you may also need to install build tools:
@@ -97,7 +104,19 @@ Node.js is available from the [NodeSource](https://nodesource.com) Enterprise Li
 
 Note that the Node.js packages for EL 5 (RHEL5 and CentOS 5) depend on the **[EPEL](https://fedoraproject.org/wiki/EPEL)** repository being available. The setup script will check and provide instructions if it is not installed.
 
-Run as root on RHEL, CentOS or Fedora:
+Run as root on RHEL, CentOS or Fedora, for Node.js v4 LTS Argon:
+
+```bash
+curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
+```
+
+Alternatively for Node.js v5:
+
+```bash
+curl --silent --location https://rpm.nodesource.com/setup_5.x | bash -
+```
+
+Alternatively for Node.js 0.10:
 
 ```bash
 curl --silent --location https://rpm.nodesource.com/setup | bash -
@@ -106,7 +125,7 @@ curl --silent --location https://rpm.nodesource.com/setup | bash -
 Then install, as root:
 
 ```bash
-yum -y install nodejs 
+yum -y install nodejs
 ```
 
 ***Optional***: install build tools
