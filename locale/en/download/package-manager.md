@@ -9,19 +9,28 @@ title: Installing Node.js via package manager
 
 ----------------------------
 
+* [Arch Linux](#arch-linux)
 * [Debian and Ubuntu based Linux distributions](#debian-and-ubuntu-based-linux-distributions)
 * [Enterprise Linux and Fedora](#enterprise-linux-and-fedora)
-* [Gentoo](#gentoo)
-* [openSUSE and SLE](#opensuse-and-sle)
-* [Arch Linux](#arch-linux)
-* [Void Linux](#void-linux)
 * [FreeBSD and OpenBSD](#freebsd-and-openbsd)
+* [Gentoo](#gentoo)
 * [NetBSD](#netbsd)
+* [openSUSE and SLE](#opensuse-and-sle)
 * [OSX](#osx)
 * [SmartOS and illumos](#smartos-and-illumos)
+* [Void Linux](#void-linux)
 * [Windows](#windows)
 
 ----------------------------
+
+## Arch Linux
+
+Node.js and npm packages are available in the Community Repository.
+
+```bash
+pacman -S nodejs npm
+```
+
 
 ## Debian and Ubuntu based Linux distributions
 
@@ -51,8 +60,6 @@ To compile and install native addons from npm you may also need to install build
 sudo apt-get install -y build-essential
 ```
 
-*(Note: The optional "nodejs-legacy" package from Debian helps prevent a conflict with the Amateur Packet Radio "Node" Program)*
-
 **Available architectures:**
 
 * **i386** (32-bit)
@@ -72,7 +79,10 @@ sudo apt-get install -y build-essential
 * **Debian testing** (stretch, aliased to jessie)
 * **Debian unstable** (sid)
 
-A Node.js package is also available in the [official repo](http://packages.debian.org/search?searchon=names&keywords=nodejs) for Debian Sid (unstable), Jessie (testing) and Wheezy (wheezy-backports) as "nodejs". It only installs a `nodejs` binary, so you might want to `ln -s /usr/bin/nodejs /usr/bin/node` for many things to work.
+A Node.js package is also available in the [official repo](http://packages.debian.org/search?searchon=names&keywords=nodejs) for Debian Sid (unstable), Jessie (testing) and Wheezy (wheezy-backports) as "nodejs". It only installs a `nodejs` binary.
+
+The [nodejs-legacy package](http://packages.debian.org/search?searchon=names&keywords=nodejs-legacy) installs a `node` symlink that is needed by many modules to build and run correctly.
+The Node.js modules available in the distribution official repositories do not need it.
 
 **Supported Linux Mint versions:**
 
@@ -209,44 +219,6 @@ Additionally, versions of **CentOS** and **Scientific Linux** corresponding to t
 * **Fedora 20 (Heisenbug)** (i686/x86_64/armv6hl/armv7hl)
 * **Fedora 19 (Schrödinger's Cat)** (i686/x86_64/armv7hl)
 
-## Gentoo
-
-Node.js is available in the portage tree.
-
-```bash
-emerge nodejs
-```
-
-## openSUSE and SLE
-
-[Download Node.js via openSUSE one-click](http://software.opensuse.org/download.html?project=devel%3Alanguages%3Anodejs&package=nodejs).
-
-Available RPM packages for: openSUSE 11.4, 12.1, 12.2, 12.3, 13.1, Factory and Tumbleweed; SLE 11 (with SP1/SP2/SP3 variations).
-
-Example install on openSUSE 13.1:
-
-```bash
-sudo zypper ar \
-  http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_13.1/ \
-  Node.js
-sudo zypper in nodejs nodejs-devel
-```
-
-## Arch Linux
-
-Node.js and npm packages are available in the Community Repository.
-
-```bash
-pacman -S nodejs npm
-```
-
-## Void Linux
-
-Void Linux ships node.js stable in the main repository.
-
-```bash
-xbps-install -Sy node.js
-```
 
 ## FreeBSD and OpenBSD
 
@@ -280,6 +252,16 @@ Or the development versions:
 pkg install node-devel
 ```
 
+
+## Gentoo
+
+Node.js is available in the portage tree.
+
+```bash
+emerge nodejs
+```
+
+
 ## NetBSD
 
 Node.js is available in the pkgsrc tree:
@@ -293,6 +275,23 @@ Or install a binary package (if available for your platform) using pkgin:
 ```bash
 pkgin -y install nodejs
 ```
+
+
+## openSUSE and SLE
+
+[Download Node.js via openSUSE one-click](http://software.opensuse.org/download.html?project=devel%3Alanguages%3Anodejs&package=nodejs).
+
+Available RPM packages for: openSUSE 11.4, 12.1, 12.2, 12.3, 13.1, Factory and Tumbleweed; SLE 11 (with SP1/SP2/SP3 variations).
+
+Example install on openSUSE 13.1:
+
+```bash
+sudo zypper ar \
+  http://download.opensuse.org/repositories/devel:/languages:/nodejs/openSUSE_13.1/ \
+  Node.js
+sudo zypper in nodejs nodejs-devel
+```
+
 
 ## OSX
 
@@ -345,6 +344,16 @@ Or build manually from pkgsrc:
 ```bash
 cd pkgsrc/lang/nodejs && bmake install
 ```
+
+
+## Void Linux
+
+Void Linux ships node.js stable in the main repository.
+
+```bash
+xbps-install -Sy nodejs
+```
+
 
 ## Windows
 

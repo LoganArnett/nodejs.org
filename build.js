@@ -183,6 +183,7 @@ function buildLocale (source, locale) {
       pattern: '**/*.html',
       partials: 'layouts/partials',
       helpers: {
+        copyright: require('./scripts/helpers/copyright-year.js'),
         equals: require('./scripts/helpers/equals.js'),
         startswith: require('./scripts/helpers/startswith.js'),
         i18n: require('./scripts/helpers/i18n.js'),
@@ -221,7 +222,7 @@ function githubLinks (options) {
       var url = 'https://github.com/nodejs/nodejs.org/edit/master/locale/' + options.locale + '/' + path.replace('.html', '.md')
 
       var contents = file.contents.toString().replace(/\<h1\>(.+)\<\/h1\>/, function ($1, $2) {
-        return '<h1>' + $2 + ' <a class="edit-link" href="' + url + '">Edit on GitHub</a></h1>'
+        return `<a class="edit-link" href="${url}">Edit on GitHub</a> <h1>${$2}</h1>`
       })
 
       file.contents = new Buffer(contents)
@@ -262,8 +263,8 @@ function fullBuild () {
           lts: latestVersion.lts(versions)
         },
         banner: {
-          visible: false,
-          content: ''
+          visible: true,
+          content: 'Important <a href="https://nodejs.org/en/blog/vulnerability/february-2016-security-releases/">security releases</a>, please update now!'
         }
       }
     }
